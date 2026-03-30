@@ -2,8 +2,12 @@
   "name": "expense_tracker",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:css": "npx @tailwindcss/cli -i ./styles.css -o ./public/css/output.css",
+    "watch:css": "npx @tailwindcss/cli -i ./styles.css -o ./public/css/output.css --watch",
+    "dev": "concurrently \"npm run watch:css\" \"node index.js\""
   },
   "author": "",
   "license": "ISC",
@@ -14,6 +18,7 @@
   },
   "devDependencies": {
     "@tailwindcss/cli": "^4.2.2",
+    "concurrently": "^9.2.1",
     "tailwindcss": "^4.2.2"
   }
 }
